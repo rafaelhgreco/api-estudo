@@ -2,6 +2,7 @@
   "name": "api-estudo",
   "packageManager": "yarn@4.5.3",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "http-status-codes": "^2.3.0"
   },
