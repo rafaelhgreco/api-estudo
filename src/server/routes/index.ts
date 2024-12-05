@@ -5,7 +5,7 @@ import { CidadesController } from '../controllers';
 const router = Router();
 
 router.get('/', (_, res) => {
-    res.status(StatusCodes.OK).json({ message: 'Hello World!' });
+    res.status(StatusCodes.OK).json({ message: 'Get!' });
 });
 
 router.post('/cidades', CidadesController.create);
