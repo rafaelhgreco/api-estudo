@@ -8,8 +8,8 @@ router.get('/', (_, res) => {
     res.status(StatusCodes.OK).json({ message: 'Get!' });
 });
 
-router.post('/cidades', CidadesController.createBodyValidator, 
-CidadesController.createQueryValidator,
+router.post('/cidades', 
+CidadesController.createValidation,
 CidadesController.create);
 
 export { router };
