@@ -5,11 +5,16 @@ import { ValidationError } from "yup";
 
 type TProperty = 'body' | 'header' | 'params' | 'query';
 
+type TGetSchema = <T>(schema: Schema<T>) => Schema<any>;
+
 type TAllSchemas = Record<TProperty, Schema<any>>;
 
-type Tvalidation = (schemas:Partial<TAllSchemas>) => RequestHandler;
+type TGetAllSchemas = (getSchema: TGetSchema) => Partial<TAllSchemas>;
 
-export const validation: Tvalidation = (schemas) => async (req, res, next) => {
+type Tvalidation = (getAllSchemas: TGetAllSchemas) => RequestHandler;
+
+export const validation: Tvalidation = (getAllSchemas) => async (req, res, next) => {
+   const schemas = getAllSchemas(schema => schema);
     console.log(schemas);
 
     const errorsResult: Record<string, Record<string, string>> = {};
